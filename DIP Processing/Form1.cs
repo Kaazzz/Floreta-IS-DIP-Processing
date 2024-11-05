@@ -55,7 +55,7 @@ namespace DIP_Processing
                 }
             }
 
-                   }
+        }
 
         public Form1()
         {
@@ -273,7 +273,7 @@ namespace DIP_Processing
         private void sepia_Click(object sender, EventArgs e)
         {
 
-            Bitmap bmp = (Bitmap) loaded.Clone();
+            Bitmap bmp = (Bitmap)loaded.Clone();
             //get image dimension
             int width = bmp.Width;
             int height = bmp.Height;
@@ -416,6 +416,8 @@ namespace DIP_Processing
             }
 
             pictureBox3.Image = imageWithBackground;
+            subtractImage = imageWithBackground;
+
         }
 
         private void openCamera_Click(object sender, EventArgs e)
@@ -479,6 +481,33 @@ namespace DIP_Processing
             else
             {
                 Console.WriteLine("Cannot take picture if the camera isn't capturing image!");
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+          
+            Bitmap bitmap = (Bitmap)subtractImage.Clone();
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "PNG Image|*.png|JPEG Image|*.jpg|Bitmap Image|*.bmp|GIF Image|*.gif";
+                saveFileDialog.Title = "Save an Image File";
+                saveFileDialog.FileName = "image"; // Default file name
+
+                // Show the dialog and check if the user clicked the Save button
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Save the bitmap to the selected file
+                    string filePath = saveFileDialog.FileName;
+                    try
+                    {
+                        bitmap.Save(filePath); // Save as default format (PNG)
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error saving file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

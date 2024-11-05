@@ -33,6 +33,7 @@
             fileToolStripMenuItem1 = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
+            saveImageWithBackground = new ToolStripMenuItem();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             basicCopy = new Button();
@@ -64,7 +65,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fileToolStripMenuItem1, openToolStripMenuItem, saveToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fileToolStripMenuItem1, openToolStripMenuItem, saveToolStripMenuItem, saveImageWithBackground });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(37, 20);
             fileToolStripMenuItem.Text = "File";
@@ -88,6 +89,13 @@
             saveToolStripMenuItem.Size = new Size(180, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
+            // 
+            // saveImageWithBackground
+            // 
+            saveImageWithBackground.Name = "saveImageWithBackground";
+            saveImageWithBackground.Size = new Size(227, 22);
+            saveImageWithBackground.Text = "Save Image with Background";
+            saveImageWithBackground.Click += toolStripMenuItem1_Click;
             // 
             // pictureBox1
             // 
@@ -277,5 +285,6 @@
         private Button loadBackground;
         private Button openCamera;
         private Button button1;
+        private ToolStripMenuItem saveImageWithBackground;
     }
 }
